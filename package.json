@@ -1,0 +1,22 @@
+{
+  "name": "discovery-health-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "worker.js",
+  "scripts": {
+    "test": "cd ./tests && mocha ./*-test.js --reporter nyan",
+    "docker-build": "docker-compose --host ${DOCKER_REGISTRY_HOST} -f docker-compose.yml -f docker-compose.prod.yml build",
+    "docker-deploy": "docker --host ${SWARM_HOST} stack deploy -c ./docker-compose.prod.stack.yml mdnemailworker_worker"
+  },
+  "dependencies": {
+    "config": "^1.25.1",
+    "core-worker": "https://github.com/monsterstack/core-worker#development",
+    "discovery-proxy": "https://github.com/monsterstack/discovery-proxy#development",
+    "discovery-model": "https://github.com/monsterstack/discovery-model#development",
+    "http-status": "^1.0.1",
+    "promise": "^7.1.1",
+    "request": "^2.80.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
