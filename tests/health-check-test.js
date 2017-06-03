@@ -44,7 +44,6 @@ describe('health-check-test', (done) => {
 
         let timeoutHandle = null;
         healthService.onHealthCheckFailed((event) => {
-            console.log(event);
             healthIsGood = false;
             clearTimeout(timeoutHandle);
 

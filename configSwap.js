@@ -8,7 +8,6 @@ const BASE_PATH = './';
 
 const fetchConfig = (configHost, configPort, serviceName, stage, cb) => {
   let path = `/v2/keys/${serviceName}-${stage}`;
-  console.log(path);
   http.get({
         host: configHost,
         port: configPort,
@@ -48,7 +47,6 @@ const main = () => {
       stage = args[3];
       fetchConfig(configHost, configPort, serviceName, stage, (err, config) => {
         // Replace ./code/config/default.json with config.
-        console.log(config);
         if(err) {
           console.log(err);
         } else {

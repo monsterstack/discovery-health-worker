@@ -10,7 +10,6 @@ const main = () => {
     _.merge(config, overrides);
   }
 
-  console.log('Starting Email Worker');
   let announcement = require('./announcement.json');
   let worker = new Worker("HealthWorker", announcement, {
     queue: "email",
